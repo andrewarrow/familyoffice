@@ -1,24 +1,23 @@
 
-<article class="grid">
-        <div>
-          <hgroup>
-            <h1>Login</h1>
-            <h2>Welcome back!</h2>
-          </hgroup>
-          <form action="/sessions/" method="POST">
-            <input type="text" name="username" placeholder="Username" aria-label="Username" autocomplete="username" required>
-            <input type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="password" required>
-            <button type="submit" class="contrast">Login</button>
-          </form>
-          <hgroup>
-            <h1>Create Account</h1>
-            <h2>Hello New User!</h2>
-          </hgroup>
+      <div class="container mx-auto px-8">
+        <div class="w-full flex flex-col md:flex-row py-6">
+          <div class="flex-1 mb-6 text-black">
+            <h1 class="font-bold">Login</h1>
+                  <form action="/sessions/" method="POST">
+                    <input class="border p-2" type="text" name="username" placeholder="Username" autocomplete="username" required>
+                    <input class="border p-2" type="password" name="password" placeholder="Password" autocomplete="password" required>
+                    <br/>
+                    <button type="submit" class="bg-sky-600 hover:bg-sky-700 mt-2 px-5 py-3 text-white rounded-lg">Login</button>
+                  </form>
+          </div>
+          <div class="flex-1 mb-6 text-black">
+            <h1 class="font-bold">Create Account</h1>
           <form action="/users/" method="POST">
-            <input type="text" name="username" placeholder="Username" aria-label="Username" autocomplete="username" required>
-            <input type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="password" required>
-            <button type="submit" class="contrast">Create Account</button>
+            <input class="border p-2": type="text" name="username" placeholder="Username" aria-label="Username" autocomplete="username" required>
+            <input class="border p-2" type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="password" required>
+            <br/>
+            <button type="submit" class="bg-sky-600 hover:bg-sky-700 mt-2 px-5 py-3 text-white rounded-lg">Create Account</button>
           </form>
+          </div>
         </div>
-        <div></div>
-</article>
+      </div>
