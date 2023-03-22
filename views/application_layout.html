@@ -5,6 +5,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 <!--  <link rel="stylesheet" type="text/css" href="/assets/css/tail.min.css">
 -->
+  <script type='text/javascript' src="/assets/javascript/main.js"></script>
 
 </head>
 
@@ -12,10 +13,19 @@
     <nav id="header" class="w-full z-30 top-0 text-black">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
         <div class="pl-4 flex items-center">
-          <a class="toggleColour text-black no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">hi</a>
+          <a class="text-black no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">{{.SiteName}}</a>
         </div>
-         <div class="block pr-4">
-                 hello
+         <div class="px-4" style="font-family: 'courier'">
+                      {{ if index .User "id" }}
+                      <form id="logout" method="POST" action="/sessions/">
+                        <input type="hidden" name="_method" value="DELETE"/>
+                      </form>
+                      <a href="/users/{{ index .User "username" }}/">{{ index .User "username" }}</a> 
+  <span class="text-gray-300">|</span> 
+  <a onclick="doLogout(event);" href="#">logout</a>
+                      {{ else }}
+        <a href="/sessions/new/">login</a> 
+                      {{ end }}
          </div>
       </div>
     <hr class="border-b border-gray-100 opacity-50 my-0 py-0" />
@@ -29,67 +39,11 @@
     </div>
 
     <footer class="bg-white">
-      <div class="container mx-auto px-8">
-        <div class="w-full flex flex-col md:flex-row py-6">
-          <div class="flex-1 mb-6 text-black">
-            <a class="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-              LANDING
-            </a>
-          </div>
-          <div class="flex-1">
-            <p class="uppercase text-gray-500 md:mb-6">Links</p>
-            <ul class="list-reset mb-6">
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">FAQ</a>
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help</a>
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Support</a>
-              </li>
-            </ul>
-          </div>
-          <div class="flex-1">
-            <p class="uppercase text-gray-500 md:mb-6">Legal</p>
-            <ul class="list-reset mb-6">
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Terms</a>
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Privacy</a>
-              </li>
-            </ul>
-          </div>
-          <div class="flex-1">
-            <p class="uppercase text-gray-500 md:mb-6">Social</p>
-            <ul class="list-reset mb-6">
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Facebook</a>
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Linkedin</a>
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Twitter</a>
-              </li>
-            </ul>
-          </div>
-          <div class="flex-1">
-            <p class="uppercase text-gray-500 md:mb-6">Company</p>
-            <ul class="list-reset mb-6">
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Official Blog</a>
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">About Us</a>
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="container mx-auto px-8 mt-20 text-center">
+              <a class="hover:underline" href="https://github.com/andrewarrow/feedback">made with the "go on rails" framework</a>
+      </div>
+      <div class="container mx-auto px-8 mt-20 text-center">
+              &nbsp;
       </div>
     </footer>
 
