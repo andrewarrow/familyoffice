@@ -1,6 +1,7 @@
 package main
 
 import (
+	"familyoffice/app"
 	"math/rand"
 	"os"
 	"time"
@@ -19,6 +20,8 @@ func main() {
 		router.InitNewApp()
 	} else if arg == "run" {
 		r := router.NewRouter()
+		r.Paths["/"] = app.HandleWelcome
+		r.Paths["dashboard"] = app.HandleDashboard
 		r.ListenAndServe(":3000")
 	} else if arg == "help" {
 	}
